@@ -1,0 +1,13 @@
+{
+  "ml-version": "9",
+  "ml-host": "marklogic",
+  "ml-admin-user": "admin",
+  "ml-admin-pass": "admin",
+  "ml-app-user": "app-user",
+  "ml-app-pass": "password",
+  "ml-http-port": "8040",
+  "node-port": 9070,
+  "guest-access": "true",
+  "disallow-updates": "false",
+  "appusers-only": "false"
+}

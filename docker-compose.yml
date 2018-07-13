@@ -1,0 +1,53 @@
+version: '3'
+services:
+  corb:
+    build:
+      context: "./build/corb/${CORB_VERSION}"
+    image: "ezbc/corb:${CORB_VERSION}"
+    hostname: corb
+    volumes:
+      - ./:${CONTAINER_WORKING_DIR}
+    working_dir: ${CONTAINER_WORKING_DIR} 
+  odh:
+    build:
+      context: "./build/odh/${ODH_VERSION}" 
+    hostname: odh
+    image: "ezbc/odh:${ODH_VERSION}"
+    command: "java -jar /opt/odh/quick-start.war"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./odh/:${CONTAINER_WORKING_DIR}
+    working_dir: ${CONTAINER_WORKING_DIR}
+  marklogic:
+    build:
+      context: "./build/marklogic/${ML_VERSION}"
+    image: "ezbc/marklogic:${ML_VERSION}"
+    hostname: marklogic
+    volumes:
+      - "${LOCAL_VOLUME_DIR}/marklogic${ML_VERSION}:/var/opt/MarkLogic"
+    ports:
+      - "${ML_PORT_LOWER}-${ML_PORT_UPPER}:${ML_PORT_LOWER}-${ML_PORT_UPPER}"
+    command: /bin/sh -c "/etc/init.d/MarkLogic start && tail -f /dev/null"
+  mlcp:
+    build:
+      context: "./build/mlcp/${MLCP_VERSION}"
+    image: "ezbc/mlcp:${MLCP_VERSION}"
+    hostname: mlcp
+    volumes:
+      - ./:${CONTAINER_WORKING_DIR}
+    working_dir: ${CONTAINER_WORKING_DIR} 
+  slush:
+    build:
+      context: "./build/slush/${SLUSH_VERSION}"
+    hostname: slush
+    image: "ezbc/slush-discovery:${SLUSH_VERSION}"
+    ports:
+      - 3000:3000
+      - 9070:9070
+      - 8040:8040
+    volumes:
+      - ./slush/:${CONTAINER_WORKING_DIR}
+    working_dir: ${CONTAINER_WORKING_DIR}
+    command: /bin/sh -c "npm install && bower install --allow-root && gulp serve-local && tail -f /dev/null"
+
