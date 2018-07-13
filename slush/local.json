@@ -5,7 +5,7 @@
   "ml-admin-pass": "admin",
   "ml-app-user": "app-user",
   "ml-app-pass": "password",
-  "ml-http-port": "8040",
+  "ml-http-port": "8010",
   "node-port": 9070,
   "guest-access": "true",
   "disallow-updates": "false",
