@@ -2,11 +2,11 @@
 
 Docker MarkLogic Stack provides a set of docker services for running MarkLogic and services in the MarkLogic ecosystem. The following services are currently supported in the stack:
 
-1. Marklogic server
-1. Operational Data Hub
-1. CoRB
-1. MarkLogic Content Pump
-1. Slush discovery app
+1. [Marklogic server](https://developer.marklogic.com/learn/technical-overview)
+1. [Operational Data Hub](https://marklogic.github.io/marklogic-data-hub/)
+1. [CoRB](https://developer.marklogic.com/code/corb)
+1. [MarkLogic Content Pump](https://developer.marklogic.com/products/mlcp)
+1. [Slush discovery app](https://github.com/ryanjdew/ml-slush-discovery-app)
 
 ## Service Details
 
